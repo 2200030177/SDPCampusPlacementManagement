@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Placement Management System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        header {
+            background-color: #512da8;
+            color: #c9d6ff;
+            text-align: center;
+            padding: 1rem 0;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin-right: 1rem;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.2rem;
+            padding: 0.5rem 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: #9932cc;
+            border-radius: 5px;
+        }
+
+        h1 {
+            margin-top: 20px;
+        }
+ .module {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f2f2f2;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.module img {
+    width: 200px; /* Specify the fixed width for the images */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+.module a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #512da8;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.module a:hover {
+    background-color: #9932cc;
+}
+
+        footer {
+            background-color: #512da8;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'aboutus' %}">About</a></li>
+                <li><a href="{% url 'services' %}">Services</a></li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
+                <li><a href="{% url 'register' %}">Register</a></li>
+            </ul>
+        </nav>
+        <h1>Campus Placement Management System</h1>
+    </header>
+
+    <div class="container">
+        <div class="module">
+            <img src="{% static 'st.jpg' %}" alt="Student Login">
+            <p>Student Can Login  Here...</p>
+            <a href="{% url 'student_verification' %}" class="btn">Student Login</a> <!-- Updated the href attribute -->
+        </div>
+       <div class="module">
+            <img src="{% static 'co.jpg' %}" alt="Company Login">
+            <p>Company Can Login Here...</p>
+            <a href="{% url 'company_verification' %}" class="btn">Company Login</a> <!-- Updated the href attribute -->
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Campus Placement Management System. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

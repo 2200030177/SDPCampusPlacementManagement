@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Verification</title>
+    <link rel="stylesheet" href="{% static 'style-verification.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Student Verification Page</h1>
+        <form method="post">
+            {% csrf_token %}
+            <label for="id_number">Enter ID Number:</label>
+            <input type="text" id="id_number" name="id_number">
+            <button type="submit">Verify</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Status</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            flex-grow: 1;
+        }
+        h2 {
+            color: #333;
+        }
+        button {
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        /* Header styles */
+        header {
+            background-color: #512da8;
+            color: #c9d6ff;
+            text-align: center;
+            padding: 1rem 0;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            padding: 0;
+        }
+        nav ul li {
+            margin-right: 1rem;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.2rem;
+            padding: 0.5rem 1rem;
+            transition: background-color 0.3s ease;
+        }
+        nav ul li a:hover {
+            background-color: #9932cc;
+            border-radius: 5px;
+        }
+        /* Footer section */
+        footer {
+            background-color: #512da8;
+            color: #edf6f9;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: auto; /* Push the footer to the bottom */
+        }
+        .footer-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .footer-info ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .footer-info ul li {
+            margin-right: 20px;
+            display: inline;
+        }
+        .footer-info ul li a {
+            color: #edf6f9;
+            text-decoration: none;
+        }
+        .footer-info ul li a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <nav>
+        <ul>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'aboutus' %}">About</a></li>
+            <li><a href="{% url 'services' %}">Services</a></li>
+            <li><a href="{% url 'contact' %}">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+<div class="container">
+    <h2>Check Registration Status</h2>
+    <p>Have you registered?</p>
+    <button onclick="checkRegistration()">Yes, I have registered</button>
+    <button onclick="redirectToServices()">No, I need to register</button>
+</div>
+<footer>
+    <div class="footer-info">
+        <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+        </ul>
+    </div>
+    <p>&copy; 2024 Campus Placement Management System. All rights reserved.</p>
+</footer>
+<script>
+    function checkRegistration() {
+        // Perform logic to check if user is registered
+        // For demonstration purpose, let's assume the user is registered
+        var isRegistered = true;
+
+        if (isRegistered) {
+            // Show registration message
+            alert("Thanks for registering!");
+        } else {
+            // Redirect to services page to register
+            window.location.href = "{% url 'signupsignin' %}";
+        }
+    }
+
+    function redirectToServices() {
+        // Redirect to services page to register
+        window.location.href = "{% url 'signupsignin' %}";
+    }
+</script>
+</body>
+</html>

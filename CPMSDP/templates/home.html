@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    /* Reset styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* General styles */
+body {
+  font-family: 'Helvetica Neue', sans-serif;
+  line-height: 1.6;
+  padding: 1rem;
+}
+
+header, .hero-content {
+  /* Add border-radius to buttons in header and hero-content */
+}
+
+/* Header styles */
+header {
+  background-color: #512da8;
+  color: #c9d6ff;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+}
+
+nav ul li {
+  margin-right: 1rem;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.2rem;
+  padding: 0.5rem 1rem;
+  transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+  background-color: #9932cc;
+  border-radius: 5px;
+}
+
+/* Footer section */
+.footer {
+  background-color: #512da8;
+  color: #edf6f9;
+  text-align: center;
+  padding: 1.5rem 1rem;
+  font-size: 1rem;
+}
+
+.footer-info {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.job-categories {
+  margin: 0 1rem;
+}
+
+.job-categories h2 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.job-categories ul {
+  list-style: none;
+}
+
+.job-categories ul li {
+  margin-bottom: 0.5rem;
+}
+
+.job-categories ul li a {
+  color: #edf6f9;
+  text-decoration: none;
+}
+
+.job-categories ul li a:hover {
+  text-decoration: underline;
+}
+
+.company-info {
+  margin-top: 1rem;
+}
+
+.company-info ul {
+  list-style: none;
+}
+
+.company-info ul li {
+  display: inline-block;
+  margin-right: 1rem;
+}
+
+.company-info ul li a {
+  color: #edf6f9;
+  text-decoration: none;
+}
+
+.company-info ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Hero section */
+.hero {
+  background-image: url("{% static '2.png' %}");
+  background-size: cover;
+  background-position: center;
+  padding: 150px 50px;
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  color: transprent; /* Change text color for better readability */
+}
+
+.hero-content img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.hero-content h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.hero-content form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-content input[type="text"],
+.hero-content select {
+  padding: 10px;
+  margin: 0 10px;
+  flex: 1;
+}
+
+.hero-content button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  border-radius: 5px; /* Add border-radius to buttons */
+}
+
+.hero-content button:hover {
+  background-color: #0056b3;
+}
+/* Search bar styles */
+.search-bar {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.search-bar input {
+  padding: 0.5rem;
+  border: 1px solid #b2b2b2;
+  border-radius: 5px 0 0 5px;
+  width: 250px;
+}
+
+.search-bar button {
+  padding: 0.5rem 1rem;
+  background-color: #512da8;
+  color: #edf6f9;
+  border: none;
+  border-radius: 5px 5px 5px 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.search-bar button:hover {
+  background-color: #8a2be2;
+}
+/* Remove button styles */
+.file-input-container {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.file-label {
+  margin-right: 10px;
+  color: #333;
+}
+
+#resume-upload {
+  margin-right: 10px;
+}
+
+#remove-file-button {
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#remove-file-button:hover {
+  background-color: #c82333;
+}
+
+/* Label styles */
+.file-label {
+  display: block;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: #333; /* Adjust the color as needed */
+}
+  </style>
+  <title>Campus Placement Management</title>
+</head>
+<body>
+<header>
+  <nav>
+    <ul>
+      <li><a href="{% url 'home' %}">Home</a></li>
+      <li><a href="{% url 'aboutus' %}">About</a></li>
+      <li><a href="{% url 'services' %}">Services</a></li>
+      <li><a href="{% url 'contact' %}">Contact</a></li>
+      <li><a href="{% url 'register' %}">Register</a></li>
+    </ul>
+  </nav>
+  <div class="search-bar">
+    <input type="text" placeholder="Search...">
+    <button type="submit">Search</button>
+  </div>
+</header>
+<section class="hero">
+  <div class="hero-content">
+    <h2>Find Your Dream Job Now!</h2>
+    <form action="/search" method="GET">
+      <input type="text" name="job_role" placeholder="Enter job role">
+      <input type="text" name="location" placeholder="Enter location">
+      <select name="experience">
+        <option value="entry">Entry Level</option>
+        <option value="mid">Mid-Level</option>
+        <option value="senior">Senior Level</option>
+      </select>
+      <label for="resume-upload" class="file-label">Upload your CV/Resume</label>
+      <div class="file-input-container">
+        <input type="file" accept=".pdf,.doc,.docx" id="resume-upload" name="resume">
+        <button type="button" id="remove-file-button">Remove</button>
+      </div>
+      <button type="submit">Search</button>
+    </form>
+  </div>
+</section>
+<footer class="footer" >
+  <div class="container">
+    <div class="footer-info">
+      <div class="job-categories">
+        <h2>Jobs by Function</h2>
+        <ul>
+          <li><a href="#">IT Software Jobs</a></li>
+          <li><a href="#">BPO Jobs</a></li>
+          <li><a href="#">Sales Jobs</a></li>
+          <li><a href="#">Fresher Jobs</a></li>
+          <li><a href="#">Medical Jobs</a></li>
+          <li><a href="#">Bank Jobs</a></li>
+          <li><a href="#">All Functional Areas</a></li>
+        </ul>
+      </div>
+      <div class="job-categories">
+        <h2>Jobs by Role</h2>
+        <ul>
+          <li><a href="#">Accountant Jobs</a></li>
+          <li><a href="#">Accountant Executive Jobs</a></li>
+          <li><a href="#">Chief Technology Officer Jobs</a></li>
+          <li><a href="#">All Roles</a></li>
+        </ul>
+      </div>
+      <div class="job-categories">
+        <h2>IT Job Skills</h2>
+        <ul>
+          <li><a href="#">Java Jobs</a></li>
+          <li><a href="#">SAP Jobs</a></li>
+          <li><a href="#">All Skills</a></li>
+        </ul>
+      </div>
+      <div class="job-categories">
+        <h2>Non-IT Job Skills</h2>
+        <ul>
+          <li><a href="#">Human resource Jobs</a></li>
+          <li><a href="#">Trade execution Jobs</a></li>
+          <li><a href="#">Jobs by Location</a></li>
+        </ul>
+      </div>
+      <div class="job-categories">
+        <h2>Jobs by Location</h2>
+        <ul>
+          <li><a href="#">Jobs in New Delhi</a></li>
+          <li><a href="#">Jobs in Kolkata</a></li>
+          <li><a href="#">Jobs by company</a></li>
+        </ul>
+      </div>
+      <div class="job-categories">
+        <h2>Jobs by company</h2>
+        <ul>
+          <li><a href="#">Search Company</a></li>
+          <li><a href="#">Gulf Jobs</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="company-info">
+      <ul>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Terms of Use</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Security Advice</a></li>
+        <li><a href="#">Fraud Alert</a></li>
+        <li><a href="#">Contact Us</a></li>
+        <li><a href="#">Sitemap</a></li>
+      </ul>
+    </div>
+    <div class="copyright">
+      <p>©2024 Campus Placement System. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const removeFileButton = document.getElementById('remove-file-button');
+    const fileInput = document.getElementById('resume-upload');
+
+    // Add event listener to remove button
+    removeFileButton.addEventListener('click', function() {
+      fileInput.value = ''; // Clear the file input
+    });
+  });
+</script>
+</body>
+</html>
